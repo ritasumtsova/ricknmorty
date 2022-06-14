@@ -10,42 +10,39 @@ const FavoriteCharacters: Function = React.lazy(() => import('./components/favor
 
 const App: React.FC = () => {
   return (
-    <>
-     <Routes>
-        <Route path="/" element={<Login />} />
-        <Route
-          path="/characters/:id"
-          element={
-            (
-              <Suspense fallback={<Loader />}>
-                <Character />
-              </Suspense>
-            )
-          }
-        />
-         <Route
-          path="/characters"
-          element={
-            (
-              <Suspense fallback={<Loader />}>
-                <Characters />
-              </Suspense>
-            )
-          }
-        />
-         <Route
-          path="/characters/:id/characters/favorite"
-          element={
-            (
-              <Suspense fallback={<Loader />}>
-                <FavoriteCharacters />
-              </Suspense>
-            )
-          }
-        />
-          {/* <Route path="*" element={<NotFound />} /> */}
-        </Routes>
-    </>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route
+        path="/characters/:id"
+        element={
+          (
+            <Suspense fallback={<Loader />}>
+              <Character />
+            </Suspense>
+          )
+        }
+      />
+      <Route
+        path="/characters"
+        element={
+          (
+            <Suspense fallback={<Loader />}>
+              <Characters />
+            </Suspense>
+          )
+        }
+      />
+      <Route
+        path="/characters/:id/characters/favorite"
+        element={
+          (
+            <Suspense fallback={<Loader />}>
+              <FavoriteCharacters />
+            </Suspense>
+          )
+        }
+      />
+    </Routes>
   );
 };
 

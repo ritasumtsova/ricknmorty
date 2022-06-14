@@ -5,6 +5,6 @@ export const charactersSelector = (state: rootState): CharactersInitState => {
   return {
     characters: state.characters?.characters,
     character: state.characters.character,
-    favoriteCharacters: state.characters.favoriteCharacters
+    favoriteCharacters: state.characters.favoriteCharacters,
   }
 };

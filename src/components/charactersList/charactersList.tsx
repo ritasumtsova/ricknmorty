@@ -18,7 +18,7 @@ const CharactersList: React.FC = () => {
         })}
       </List>
     </Box>
-  )
+  );
 };
 
 export default CharactersList;

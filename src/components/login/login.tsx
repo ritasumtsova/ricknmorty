@@ -14,11 +14,11 @@ const Login: React.FC = () => {
   }
 
   if (errorMessage) {
-    return <Typography>{errorMessage}</Typography>
+    return <Typography>{errorMessage}</Typography>;
   }
 
   const login = () => {
-    navigate(`/characters/`);
+    navigate('/characters');
   };
 
   return <Button onClick={login}>fake auth</Button>;

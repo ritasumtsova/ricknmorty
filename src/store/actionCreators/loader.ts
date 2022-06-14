@@ -16,9 +16,9 @@ export const fetchEnd = (): ActionType => {
 
 export const fetchFailure = (error: AxiosError): ActionType => {
   const errorMessage: string = error.message;
-  
+
   return {
     type: loaderActionTypes.FETCH_FAILURE,
-    payload: errorMessage
+    payload: errorMessage,
   };
 };

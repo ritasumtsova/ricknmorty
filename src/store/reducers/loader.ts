@@ -4,28 +4,28 @@ import { LoaderInitState } from '../../types/store/initState';
 
 const initState: LoaderInitState = {
   loading: false,
-  errorMessage: ''
+  errorMessage: '',
 };
 
 const loaderReducer = (state: LoaderInitState = initState, action: ActionType) => {
-  switch(action.type) {
+  switch (action.type) {
     case loaderActionTypes.FETCH_START:
       return {
         ...state,
-        loading: true
+        loading: true,
       };
 
     case loaderActionTypes.FETCH_END:
       return {
         ...state,
-        loading: false
+        loading: false,
       };
 
     case loaderActionTypes.FETCH_FAILURE:
       return {
         ...state,
         loading: false,
-        errorMessage: action.payload
+        errorMessage: action.payload,
       };
 
     default:

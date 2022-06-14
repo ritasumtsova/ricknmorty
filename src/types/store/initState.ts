@@ -1,4 +1,4 @@
-import { Character, Characters } from "../characters";
+import { Character, Characters } from '../characters';
 
 export interface LoaderInitState {
   loading: boolean;

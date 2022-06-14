@@ -1,5 +1,5 @@
-import { Characters, Character } from './../types/characters';
 import axios, { AxiosResponse } from 'axios';
+import { Characters, Character } from '../types/characters';
 
 const charactersAPI = {
   CONFIG: axios.create({

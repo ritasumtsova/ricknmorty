@@ -1,10 +1,10 @@
-import { GET_CHARACTER_BY_ID } from './../../../types/store/actionType';
-import { setCharacters, setCharacterById } from './../../actionCreators/characters';
 import { put, takeEvery, call } from 'redux-saga/effects';
 import { AxiosResponse, AxiosError } from 'axios';
+import { GET_CHARACTER_BY_ID } from '../../../types/store/actionType';
+import { setCharacters, setCharacterById } from '../../actionCreators/characters';
 import { fetchStart, fetchEnd, fetchFailure } from '../../actionCreators/loader';
 import charactersAPI from '../../../api/characters';
-import { Character, Characters } from './../../../types/characters';
+import { Character, Characters } from '../../../types/characters';
 import { charactersActionTypes } from '../../actionTypes/characters';
 
 const callEffect: any = call;
@@ -28,7 +28,10 @@ function* getCharacterById(action: GET_CHARACTER_BY_ID) {
   yield put(fetchStart());
 
   try {
-    const res: AxiosResponse<Character> = yield callEffect(charactersAPI.getCharacterById, action.payload);
+    const res: AxiosResponse<Character> = yield callEffect(
+      charactersAPI.getCharacterById,
+      action.payload,
+    );
     const character: Character = res.data;
 
     yield put(setCharacterById(character));

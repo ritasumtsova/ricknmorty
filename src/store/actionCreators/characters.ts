@@ -11,27 +11,27 @@ export const getCharacters = (): ActionType => {
 export const setCharacters = (characters: Characters): ActionType => {
   return {
     type: charactersActionTypes.SET_CHARACTERS,
-    payload: characters
+    payload: characters,
   };
 };
 
 export const getCharacterById = (id: number): ActionType => {
   return {
     type: charactersActionTypes.GET_CHARACTER_BY_ID,
-    payload: id
+    payload: id,
   };
 };
 
 export const setCharacterById = (character: Character): ActionType => {
   return {
     type: charactersActionTypes.SET_CHARACTER_BY_ID,
-    payload: character
+    payload: character,
   };
 };
 
 export const setFavoriteCharacter = (character: Character): ActionType => {
   return {
     type: charactersActionTypes.SET_FAVORITE_CHARACTER,
-    payload: character
+    payload: character,
   };
 };
