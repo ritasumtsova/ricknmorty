@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import Loader from './components/loader/loader';
+import Login from './components/login/login';
 
-function App() {
+const Character: Function = React.lazy(() => import('./components/character/character'));
+const Characters: Function = React.lazy(() => import('./components/characters/characters'));
+const FavoriteCharacters: Function = React.lazy(() => import('./components/favoriteCharacters/favoriteCharacters'));
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     <Routes>
+        <Route path="/" element={<Login />} />
+        <Route
+          path="/characters/:id"
+          element={
+            (
+              <Suspense fallback={<Loader />}>
+                <Character />
+              </Suspense>
+            )
+          }
+        />
+         <Route
+          path="/characters"
+          element={
+            (
+              <Suspense fallback={<Loader />}>
+                <Characters />
+              </Suspense>
+            )
+          }
+        />
+         <Route
+          path="/characters/:id/characters/favorite"
+          element={
+            (
+              <Suspense fallback={<Loader />}>
+                <FavoriteCharacters />
+              </Suspense>
+            )
+          }
+        />
+          {/* <Route path="*" element={<NotFound />} /> */}
+        </Routes>
+    </>
   );
-}
+};
 
 export default App;
